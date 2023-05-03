@@ -27,30 +27,32 @@
             <li>Press the Generate Password button.</li>
             <li>Copy password from the text box below.</li>
           </ol>
-          <label>
-            <input
-              type="text"
-              name="char-input"
-              placeholder="password characters 8-128"
-              id="char-input"
-            />
-          </label>
-          <label>
-            <input id="char-lower" name="includeLowercase" type="checkbox" />
-            Lowercase
-          </label>
-          <label>
-            <input id="char-upper" name="includeUppercase" type="checkbox" />
-            Uppercase
-          </label>
-          <label>
-            <input id="char-number" name="includeNumbers" type="checkbox" />
-            Numbers
-          </label>
-          <label>
-            <input id="char-special" name="includeSpecial" type="checkbox" />
-            Special Characters
-          </label>
+          <form>
+            <label>
+              <input
+                type="text"
+                name="char-input"
+                placeholder="# between 8-128"
+                id="char-input"
+              />
+            </label>
+            <label>
+              <input id="char-lower" name="includeLowercase" type="checkbox" />
+              Lowercase
+            </label>
+            <label>
+              <input id="char-upper" name="includeUppercase" type="checkbox" />
+              Uppercase
+            </label>
+            <label>
+              <input id="char-number" name="includeNumbers" type="checkbox" />
+              Numbers
+            </label>
+            <label>
+              <input id="char-special" name="includeSpecial" type="checkbox" />
+              Special
+            </label>
+          </form>
         </div>
         <div class="card-body">
           <textarea

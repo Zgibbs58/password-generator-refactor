@@ -42,6 +42,20 @@ header {
   padding: 30px 40px;
 }
 
+.card-header ol li {
+  padding: 0.25rem 0;
+}
+
+.card-header form {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.card-header form label {
+  padding: 0.25rem 0.25rem;
+}
+
 .card-header::after {
   content: " ";
   display: block;
