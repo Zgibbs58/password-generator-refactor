@@ -1,11 +1,11 @@
 var generateBtn = document.querySelector("#generate");
 
 function generatePassword() {
-  var passwordLength = parseInt(
-    prompt(
-      "Enter the length of password, with at least 8 characters and no more than 128."
-    )
-  );
+  // console.log(document.getElementById("char-input").value);
+  var passwordLength = parseInt(document.getElementById("char-input").value);
+  if (!passwordLength) {
+    return "Your Secure Password";
+  }
   //while loop says, while isNan(true), or passwordLength <8 === true, or >128 ===true the while loop will contiue showing alert and then prompt. User will not exit loop until all inputs are false.
   while (isNaN(passwordLength) || passwordLength < 8 || passwordLength > 128) {
     window.alert("Please enter a valid number!");
