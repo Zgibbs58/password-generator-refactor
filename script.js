@@ -1,14 +1,14 @@
 var generateBtn = document.querySelector("#generate");
 
 function generatePassword() {
-  var lowerCaseCheck = document.querySelector("#char-lower").checked;
-  var lowerCaseCheck = document.querySelector("#char-lower").checked;
-  var lowerCaseCheck = document.querySelector("#char-lower").checked;
-  var lowerCaseCheck = document.querySelector("#char-lower").checked;
+  var lowerChkbx = document.querySelector("#char-lower").checked;
+  var upperChkbx = document.querySelector("#char-upper").checked;
+  var numberChkbx = document.querySelector("#char-number").checked;
+  var specialChkbx = document.querySelector("#char-special").checked;
 
   var passwordLength = parseInt(document.getElementById("char-input").value);
   if (!passwordLength) {
-    return "Your Secure Password";
+    return "Please select a valid number ranging from 8 to 128.";
   }
   //while loop says, while isNan(true), or passwordLength <8 === true, or >128 ===true the while loop will contiue showing alert and then prompt. User will not exit loop until all inputs are false.
   while (isNaN(passwordLength) || passwordLength < 8 || passwordLength > 128) {
@@ -20,24 +20,21 @@ function generatePassword() {
   // empty charset string is added to as the the user hits okay on confirms.
   var charset = "";
 
-  if (lowerCaseCheck) {
+  if (lowerChkbx) {
     charset += "abcdefghijklmnopqrstuvwxyz";
   }
-  if (confirm("Include upper case?")) {
+  if (upperChkbx) {
     charset += "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
   }
-  if (confirm("Include numbers?")) {
+  if (numberChkbx) {
     charset += "0123456789";
   }
-  if (confirm("Include special characters?")) {
+  if (specialChkbx) {
     charset += "!#$%&'()*+,-.:;<=>?@[]^_`{|}~";
   }
   // used to validate at least one character set was selected to continue
   if (charset === "") {
-    alert("Please select at least one character set.");
-    // if this condition is met and the charset is empty, we STOP our app here. we no longer run the rest of the generatePassword() function.
-    // return statement stops the code from running past it by returning the generatePassword function.
-    return generatePassword();
+    return "Please select at least one character set.";
   }
 
   // PasswordGenerated string is added to one character at a time throught the loop for as many times as passwordLength.
