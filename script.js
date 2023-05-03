@@ -12,10 +12,7 @@ function generatePassword() {
   }
   //while loop says, while isNan(true), or passwordLength <8 === true, or >128 ===true the while loop will contiue showing alert and then prompt. User will not exit loop until all inputs are false.
   while (isNaN(passwordLength) || passwordLength < 8 || passwordLength > 128) {
-    window.alert("Please enter a valid number!");
-    passwordLength = prompt(
-      "Enter the length of password, with at least 8 characters and no more than 128."
-    );
+    return "Please select a valid number ranging from 8 to 128.";
   }
   // empty charset string is added to as the the user hits okay on confirms.
   var charset = "";
