@@ -1,7 +1,11 @@
 var generateBtn = document.querySelector("#generate");
 
 function generatePassword() {
-  // console.log(document.getElementById("char-input").value);
+  var lowerCaseCheck = document.querySelector("#char-lower").checked;
+  var lowerCaseCheck = document.querySelector("#char-lower").checked;
+  var lowerCaseCheck = document.querySelector("#char-lower").checked;
+  var lowerCaseCheck = document.querySelector("#char-lower").checked;
+
   var passwordLength = parseInt(document.getElementById("char-input").value);
   if (!passwordLength) {
     return "Your Secure Password";
@@ -16,7 +20,7 @@ function generatePassword() {
   // empty charset string is added to as the the user hits okay on confirms.
   var charset = "";
 
-  if (confirm("Include lower case?")) {
+  if (lowerCaseCheck) {
     charset += "abcdefghijklmnopqrstuvwxyz";
   }
   if (confirm("Include upper case?")) {
