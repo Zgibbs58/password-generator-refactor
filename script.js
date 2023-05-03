@@ -1,19 +1,22 @@
 var generateBtn = document.querySelector("#generate");
 
 function generatePassword() {
+  // added variables to grab inputs from user after hitting the generate button so the values aren't gathered upon page load but on click event.
+  var passwordLength = parseInt(document.getElementById("char-input").value);
   var lowerChkbx = document.querySelector("#char-lower").checked;
   var upperChkbx = document.querySelector("#char-upper").checked;
   var numberChkbx = document.querySelector("#char-number").checked;
   var specialChkbx = document.querySelector("#char-special").checked;
 
-  var passwordLength = parseInt(document.getElementById("char-input").value);
   if (!passwordLength) {
     return "Please select a valid number ranging from 8 to 128.";
   }
   //while loop says, while isNan(true), or passwordLength <8 === true, or >128 ===true the while loop will contiue showing alert and then prompt. User will not exit loop until all inputs are false.
   while (isNaN(passwordLength) || passwordLength < 8 || passwordLength > 128) {
+    // returns error message to card text area
     return "Please select a valid number ranging from 8 to 128.";
   }
+
   // empty charset string is added to as the the user hits okay on confirms.
   var charset = "";
 
@@ -37,10 +40,6 @@ function generatePassword() {
   // PasswordGenerated string is added to one character at a time throught the loop for as many times as passwordLength.
   var passwordGenerated = "";
   for (let i = 0; i < passwordLength; i++) {
-    // two ways to write this out
-    // var random = Math.floor(Math.random() * charset.length);
-    // var randCharset = charset[random];
-    // passwordGenerated += randCharset;
     var randCharset = charset.charAt(
       Math.floor(Math.random() * charset.length)
     );
