@@ -7,14 +7,21 @@ function generatePassword() {
   var upperChkbx = document.querySelector("#char-upper").checked;
   var numberChkbx = document.querySelector("#char-number").checked;
   var specialChkbx = document.querySelector("#char-special").checked;
+  // error handling messages
+  var errorSect = document.getElementById("error-msg");
+  var numErrorMsg = "Please select a valid number ranging from 8 to 128.";
+  var charErrorMsg = "Please select at least one character set.";
+  // reset of the error message
+  errorSect.textContent = "";
 
   if (!passwordLength) {
-    return "Please select a valid number ranging from 8 to 128.";
+    errorSect.textContent = numErrorMsg;
+    return "";
   }
   //while loop says, while isNan(true), or passwordLength <8 === true, or >128 ===true the while loop will contiue showing alert and then prompt. User will not exit loop until all inputs are false.
   while (isNaN(passwordLength) || passwordLength < 8 || passwordLength > 128) {
-    // returns error message to card text area
-    return "Please select a valid number ranging from 8 to 128.";
+    errorSect.textContent = numErrorMsg;
+    return "";
   }
 
   // empty charset string is added to as the the user hits okay on confirms.
@@ -34,7 +41,8 @@ function generatePassword() {
   }
   // used to validate at least one character set was selected to continue
   if (charset === "") {
-    return "Please select at least one character set.";
+    errorSect.textContent = charErrorMsg;
+    return "";
   }
 
   // PasswordGenerated string is added to one character at a time throught the loop for as many times as passwordLength.
